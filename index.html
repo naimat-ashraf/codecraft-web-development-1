@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Landing Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #0b0b0f;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* NAVIGATION BAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: transparent;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+      transition: 0.4s ease;
+      z-index: 100;
+    }
+
+    nav.scrolled {
+      background: #1e1e2e;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    ul li a:hover {
+      color: #a855f7;
+    }
+
+    /* HAMBURGER MENU */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: #fff;
+      margin: 4px 0;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10%;
+      background: linear-gradient(135deg, #090913, #171738);
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .hero-text h3 {
+      font-size: 1.5rem;
+      color: #a855f7;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      line-height: 1.6;
+      color: #d4d4d8;
+      font-size: 1rem;
+    }
+
+    .hero-box {
+      flex: 1;
+      background: #a855f7;
+      padding: 30px;
+      border-radius: 15px;
+      color: #fff;
+      max-width: 400px;
+      min-width: 280px;
+    }
+
+    .hero-box p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* RESPONSIVE STYLES */
+    @media (max-width: 768px) {
+      ul {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: #1e1e2e;
+        width: 200px;
+        flex-direction: column;
+        align-items: center;
+        display: none;
+        border-radius: 10px;
+        padding: 20px;
+      }
+
+      ul.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-box {
+        margin-top: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <nav id="navbar">
+    <div class="logo">CODE CRAFT</div>
+    <ul id="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-text">
+      <h3>TASK - 01</h3>
+      <h1>Responsive Landing Page</h1>
+      <p>
+        Create an interactive navigation menu that changes color or style when
+        scrolled or hovered. Use HTML, CSS, and JavaScript to make it
+        responsive and visually appealing.
+      </p>
+    </div>
+    <div class="hero-box">
+      <p>
+        “Create an interactive navigation menu that changes color or style when
+        scrolled or when hovering over a menu item. The navigation menu should
+        have a fixed position and be visible on all pages. Use HTML to
+        structure, CSS to style, and JavaScript to add interactivity.”
+      </p>
+    </div>
+  </section>
+
+  <script>
+    // NAVBAR SCROLL EFFECT
+    const navbar = document.getElementById("navbar");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+
+    // HAMBURGER MENU
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+    });
+  </script>
+</body>
+</html>
